@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  #Cria container da base de dados
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: neoway_teste
+    volumes:
+      # Cria uma pasta no host e mapea o que esta dentro do container
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      #  "host":"container"
+      - '5434:5432'
+    #Reinicia caso occora algum problema no container
+    restart: always
+  app:
+    build:
+      # O contexto está na pasta raíz
+      context: .
+      dockerfile: Dockerfile
+    container_name: python-container
+    environment:
+      # Cada container tem seu localhost
+      POSTGRES_URL: 'postgres:postgres@db:5432/neoway_teste'
+    command: python app/main.py
+    depends_on:
+      - db
+    links:
+      - db
