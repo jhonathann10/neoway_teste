@@ -1,0 +1,9 @@
+{
+    "file_name": "base_teste",
+    "file_path": "app/data",
+    "file_extension": "txt",
+    "file_headers": ["cpf", "private", "incompleto", "data_ultima_compra", "ticket_medio", "ticket_ultima_compra",
+      "loja_mais_frequente", "loja_ultima_compra"],
+    "schema": "public",
+    "table_name": "base_teste"
+}
