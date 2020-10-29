@@ -3,7 +3,7 @@
 
 ## Dependencias
 - Instalar as bibliotecas que está no requirements.txt
-Obs: As dependencias são instalar quando rodamos o docker-compose up
+Obs: As dependencias são instaladas quando rodamos o docker-compose up
 
 ## Shut Down
 - docker-compose down
